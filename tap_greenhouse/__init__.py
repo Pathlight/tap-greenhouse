@@ -130,7 +130,7 @@ def discover():
     raw_schemas = load_schemas()
     streams = []
     for stream_id, schema in raw_schemas.items():
-        key_properties = ['id']
+        key_properties = ['application_id']
         valid_replication_keys = []
         if stream_id in ['messages', 'satisfaction_survey']:
             valid_replication_keys.append('created_datetime')
