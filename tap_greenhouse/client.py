@@ -21,12 +21,10 @@ class GreenhouseAPI:
             url = f'{self.base_url}{url}'
 
         for num_retries in range(self.MAX_RETRIES):
-            LOGGER.info(f'greenhouse get request {url}')
             resp = requests.get(
                 url,
                 auth=(self.api_key, '')
             )
-            LOGGER.info(f'Logged')
 
             try:
                 resp.raise_for_status()
