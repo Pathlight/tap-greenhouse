@@ -737,9 +737,9 @@
       "stream": "applications",
       "metadata": [
         {
-          "selected": true,
           "breadcrumb": [],
           "metadata": {
+            "selected": true,
             "table-key-properties": [
               "id"
             ],

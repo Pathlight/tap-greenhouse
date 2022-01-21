@@ -107,7 +107,6 @@ class Applications(Stream):
 
     # def sync(self, ticket_id, sync_thru):
     def sync(self, state, config):
-        LOGGER.info("syncing")
         try:
             sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
         except TypeError:
@@ -147,7 +146,6 @@ class Candidates(Stream):
 
     # def sync(self, ticket_id, sync_thru):
     def sync(self, state, config):
-        LOGGER.info("syncing")
         try:
             sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
         except TypeError:
@@ -160,7 +158,7 @@ class Candidates(Stream):
             yield(self.stream, values)
 
 STREAMS = {
-    # "eeoc": EEOC,
-    # "applications": Applications,
+    "eeoc": EEOC,
+    "applications": Applications,
     "candidates": Candidates,
 }
