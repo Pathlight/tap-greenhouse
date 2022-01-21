@@ -13,7 +13,6 @@ from .sync import sync_stream
 
 REQUIRED_CONFIG_KEYS = ["api_key", "start_date"]
 SUB_STREAMS = {
-    'tickets': ['messages']
 }
 LOGGER = singer.get_logger()
 
