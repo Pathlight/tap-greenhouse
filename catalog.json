@@ -1,6 +1,431 @@
 {
   "streams": [
     {
+      "tap_stream_id": "candidates",
+      "key_properties": [
+        "id"
+      ],
+      "schema": {
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "first_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "last_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "company": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "created_at": {
+            "format": "date-time",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "updated_at": {
+            "format": "date-time",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "last_activity": {
+            "format": "date-time",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "is_private": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "photo_url": {},
+          "attachments": {},
+          "application_ids": {},
+          "phone_numbers": {},
+          "addresses": {},
+          "email_addresses": {},
+          "website_addresses": {},
+          "social_media_addresses": {},
+          "recruiter": {
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "first_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "last_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "employee_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "coordinator": {
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "first_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "last_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "employee_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "can_email": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "tags": {},
+          "applications": {},
+          "educations": {},
+          "employments": {},
+          "linked_user_ids": {},
+          "custom_fields": {},
+          "keyed_custom_fields": {}
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "stream": "candidates",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "selected": true,
+            "table-key-properties": [
+              "id"
+            ],
+            "valid-replication-keys": [],
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "first_name"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "last_name"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "company"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "title"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "created_at"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "updated_at"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "last_activity"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "is_private"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "photo_url"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "attachments"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "application_ids"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "phone_numbers"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "addresses"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "email_addresses"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "website_addresses"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "social_media_addresses"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "recruiter"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "coordinator"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "can_email"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "tags"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "applications"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "educations"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "employments"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "linked_user_ids"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "custom_fields"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "keyed_custom_fields"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        }
+      ]
+    },
+    {
       "tap_stream_id": "eeoc",
       "key_properties": [
         "application_id"
@@ -197,40 +622,31 @@
       "schema": {
         "properties": {
           "id": {
-            "type": "integer"
-          },
-          "first_name": {
             "type": [
               "null",
-              "string"
+              "integer"
             ]
           },
-          "last_name": {
+          "candidate_id": {
             "type": [
               "null",
-              "string"
+              "integer"
             ]
           },
-          "company": {
+          "prospect": {
             "type": [
               "null",
-              "string"
+              "boolean"
             ]
           },
-          "title": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "created_at": {
+          "applied_at": {
             "format": "date-time",
             "type": [
               "null",
               "string"
             ]
           },
-          "updated_at": {
+          "rejected_at": {
             "format": "date-time",
             "type": [
               "null",
@@ -244,101 +660,86 @@
               "string"
             ]
           },
-          "is_private": {
+          "location": {},
+          "source": {},
+          "credited_to": {
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "first_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "last_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "employee_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
             "type": [
               "null",
-              "boolean"
+              "object"
             ]
           },
-          "photo_url": {
+          "rejection_reason": {},
+          "rejection_details": {},
+          "jobs": {},
+          "job_post_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "status": {
             "type": [
               "null",
               "string"
             ]
           },
-          "attachments": {
+          "current_stage": {},
+          "answers": {},
+          "prospective_office": {
             "type": [
               "null",
-              "array"
+              "string"
             ]
           },
-          "application_ids": {
-            "type": [
-              "null",
-              "array"
-            ]
-          },
-          "phone_numbers": {
-            "type": [
-              "null",
-              "array"
-            ]
-          },
-          "addresses": {
-            "type": [
-              "null",
-              "array"
-            ]
-          },
-          "email_addresses": {
-            "type": [
-              "null",
-              "array"
-            ]
-          },
-          "website_addresses": {
-            "type": [
-              "null",
-              "array"
-            ]
-          },
-          "social_media_addresses": {
-            "type": [
-              "null",
-              "array"
-            ]
-          },
-          "recruiter": {
-            "properties": {}
-          },
-          "applications": {
-            "type": [
-              "null",
-              "array"
-            ]
-          },
-          "tags": {
-            "type": [
-              "null",
-              "array"
-            ]
-          },
-          "educations": {
-            "type": [
-              "null",
-              "array"
-            ]
-          },
-          "employments": {
-            "type": [
-              "null",
-              "array"
-            ]
-          },
-          "custom_fields": {
-            "properties": {}
-          },
-          "keyed_custom_fields": {
-            "properties": {}
-          }
-        }
+          "prospective_department": {},
+          "prospect_detail": {},
+          "custom_fields": {},
+          "keyed_custom_fields": {},
+          "attachments": {}
+        },
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "stream": "applications",
       "metadata": [
         {
+          "selected": true,
           "breadcrumb": [],
           "metadata": {
-            "selected": true,
             "table-key-properties": [
               "id"
             ],
@@ -358,7 +759,7 @@
         {
           "breadcrumb": [
             "properties",
-            "first_name"
+            "candidate_id"
           ],
           "metadata": {
             "inclusion": "available"
@@ -367,7 +768,7 @@
         {
           "breadcrumb": [
             "properties",
-            "last_name"
+            "prospect"
           ],
           "metadata": {
             "inclusion": "available"
@@ -376,7 +777,7 @@
         {
           "breadcrumb": [
             "properties",
-            "company"
+            "applied_at"
           ],
           "metadata": {
             "inclusion": "available"
@@ -385,25 +786,7 @@
         {
           "breadcrumb": [
             "properties",
-            "title"
-          ],
-          "metadata": {
-            "inclusion": "available"
-          }
-        },
-        {
-          "breadcrumb": [
-            "properties",
-            "created_at"
-          ],
-          "metadata": {
-            "inclusion": "available"
-          }
-        },
-        {
-          "breadcrumb": [
-            "properties",
-            "updated_at"
+            "rejected_at"
           ],
           "metadata": {
             "inclusion": "available"
@@ -421,7 +804,7 @@
         {
           "breadcrumb": [
             "properties",
-            "is_private"
+            "location"
           ],
           "metadata": {
             "inclusion": "available"
@@ -430,7 +813,7 @@
         {
           "breadcrumb": [
             "properties",
-            "photo_url"
+            "source"
           ],
           "metadata": {
             "inclusion": "available"
@@ -439,7 +822,7 @@
         {
           "breadcrumb": [
             "properties",
-            "attachments"
+            "credited_to"
           ],
           "metadata": {
             "inclusion": "available"
@@ -448,7 +831,7 @@
         {
           "breadcrumb": [
             "properties",
-            "application_ids"
+            "rejection_reason"
           ],
           "metadata": {
             "inclusion": "available"
@@ -457,7 +840,7 @@
         {
           "breadcrumb": [
             "properties",
-            "phone_numbers"
+            "rejection_details"
           ],
           "metadata": {
             "inclusion": "available"
@@ -466,7 +849,7 @@
         {
           "breadcrumb": [
             "properties",
-            "addresses"
+            "jobs"
           ],
           "metadata": {
             "inclusion": "available"
@@ -475,7 +858,7 @@
         {
           "breadcrumb": [
             "properties",
-            "email_addresses"
+            "job_post_id"
           ],
           "metadata": {
             "inclusion": "available"
@@ -484,7 +867,7 @@
         {
           "breadcrumb": [
             "properties",
-            "website_addresses"
+            "status"
           ],
           "metadata": {
             "inclusion": "available"
@@ -493,7 +876,7 @@
         {
           "breadcrumb": [
             "properties",
-            "social_media_addresses"
+            "current_stage"
           ],
           "metadata": {
             "inclusion": "available"
@@ -502,7 +885,7 @@
         {
           "breadcrumb": [
             "properties",
-            "recruiter"
+            "answers"
           ],
           "metadata": {
             "inclusion": "available"
@@ -511,7 +894,7 @@
         {
           "breadcrumb": [
             "properties",
-            "applications"
+            "prospective_office"
           ],
           "metadata": {
             "inclusion": "available"
@@ -520,7 +903,7 @@
         {
           "breadcrumb": [
             "properties",
-            "tags"
+            "prospective_department"
           ],
           "metadata": {
             "inclusion": "available"
@@ -529,16 +912,7 @@
         {
           "breadcrumb": [
             "properties",
-            "educations"
-          ],
-          "metadata": {
-            "inclusion": "available"
-          }
-        },
-        {
-          "breadcrumb": [
-            "properties",
-            "employments"
+            "prospect_detail"
           ],
           "metadata": {
             "inclusion": "available"
@@ -557,6 +931,15 @@
           "breadcrumb": [
             "properties",
             "keyed_custom_fields"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "attachments"
           ],
           "metadata": {
             "inclusion": "available"
