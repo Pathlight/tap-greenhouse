@@ -1,0 +1,63 @@
+{
+    "type": [
+      "null",
+      "object"
+    ],
+    "properties": {
+        "id": {"type": ["null", "integer"]},
+        "version": {"type": ["null", "integer"]},
+        "application_id": {"type": ["null", "integer"]},
+        "job_id": {"type": ["null", "integer"]},
+        "candidate_id": {"type": ["null", "integer"]},
+        "opening": {},
+        "created_at": {
+            "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"  
+        },
+        "updated_at": {
+            "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"  
+        },
+        "sent_at": {
+            "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"  
+        },
+        "resolved_at": {
+            "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"  
+        },
+        "starts_at": {
+            "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"  
+        },
+        "status": {"type": ["null", "string"]},
+        "custom_fields": {
+            "type": ["null", "object"],
+            "properties": {
+                "employment_type": {"type": ["null", "string"]},
+                "favorite_station": {"type": ["null", "string"]},
+                "best_seasons": {},
+                "start_date": {"type": ["null", "string"]},
+                "willing_to_negotiate": {},
+                "salary": {"type": ["null", "string"]},
+                "notes":{"type": ["null", "string"]}
+            }
+        },
+        "keyed_custom_fields": {}
+    }
+}

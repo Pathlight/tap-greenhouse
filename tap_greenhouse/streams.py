@@ -157,8 +157,48 @@ class Candidates(Stream):
             values = {k: self.transform_value(k, v) for (k, v) in row.items()}
             yield(self.stream, values)
 
+class Offers(Stream):
+    name = 'offers'
+    replication_method = 'INCREMENTAL'
+    key_properties = ['id']
+    replication_key = 'created_at'
+    incremental_search_key='created_after',
+    url = '/v1/offers'
+    datetime_fields = set([
+        'created_before', 'created_after'
+    ])
+    results_key = 'data'
+
+    def paging_get(self, url):
+        per_page = 500
+        url = url+f'&per_page={per_page}'
+        
+        while True:
+            r = self.client.get(url)
+            data = r.json()
+            for record in data:  
+                yield record
+            if 'next' in r.links:
+                url = r.links['next']['url']
+            else:
+                break
+
+    # def sync(self, ticket_id, sync_thru):
+    def sync(self, state, config):
+        try:
+            sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
+        except TypeError:
+            sync_thru = self.start_date
+        
+        processed_url = self.url+f'?{self.incremental_search_key}={sync_thru}'
+        
+        for row in self.paging_get(processed_url):
+            values = {k: self.transform_value(k, v) for (k, v) in row.items()}
+            yield(self.stream, values)
+
 STREAMS = {
     "eeoc": EEOC,
     "applications": Applications,
     "candidates": Candidates,
+    "offers": Offers
 }
