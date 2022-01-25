@@ -1,0 +1,41 @@
+{
+    "type": [
+      "null",
+      "object"
+    ],
+    "properties": {
+            "id": {"type": ["null", "integer"]},
+            "title": {"type": ["null", "string"]},
+            "location": {},
+            "internal": {"type": ["null", "boolean"]},
+            "external": {"type": ["null", "boolean"]},
+            "active": {"type": ["null", "boolean"]},
+            "live": {"type": ["null", "boolean"]},
+            "first_published_at": {
+                "type": [
+                    "null",
+                    "string"
+                  ],
+                  "format": "date-time"  
+            },
+            "job_id": {"type": ["null", "integer"]},
+            "content": {"type": ["null", "string"]},
+            "internal_content": {"type": ["null", "string"]},
+            "updated_at": {
+                "type": [
+                    "null",
+                    "string"
+                  ],
+                  "format": "date-time"  
+            },
+            "created_at": {
+                "type": [
+                    "null",
+                    "string"
+                  ],
+                  "format": "date-time"  
+            },
+            "demographic_question_set_id": {"type": ["null", "integer"]},
+            "questions": {}
+    }
+}

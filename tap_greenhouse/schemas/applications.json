@@ -52,6 +52,16 @@
         "prospect_detail": {},
         "custom_fields": {},
         "keyed_custom_fields": {},
-        "attachments": {}
+        "attachments": {
+            "type": ["null", "array"],
+            "items": {
+                "type": ["null", "object"],
+                "properties": {
+                    "filename": {"type": ["null", "string"]},
+                    "url": {"type": ["null", "string"]},
+                    "type": {"type": ["null", "string"]}
+                }
+            }
+        }
     }
 }

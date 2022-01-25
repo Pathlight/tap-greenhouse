@@ -66,9 +66,9 @@
             }
         },
         "interviewers": {
-            "type": "array",
+            "type": ["null", "array"],
             "items": {
-                "type": "object",
+                "type": ["null", "object"],
                 "properties": {
                     "id": {"type": ["null", "integer"]},
                     "employee_id": {"type": ["null", "string"]},
@@ -80,4 +80,4 @@
             }
         }
     }
-  }
+}

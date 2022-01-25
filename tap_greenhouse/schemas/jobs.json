@@ -1,0 +1,166 @@
+{
+    "type": [
+        "null",
+        "object"
+    ],
+    "properties": {
+        "id": {"type": ["null", "integer"]},
+        "name": {"type": ["null", "string"]},
+        "requisition_id": {"type": ["null", "string"]},
+        "notes": {"type": ["null", "string"]},
+        "confidential": {"type": ["null", "boolean"]},
+        "status": {"type": ["null", "string"]},
+        "created_at": {
+            "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"  
+        },
+        "opened_at": {
+            "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"  
+        },
+        "closed_at": {
+            "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"  
+        },
+        "updated_at": {
+            "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"  
+        },
+        "is_template": {"type": ["null", "boolean"]},
+        "copied_from_id": {"type": ["null", "integer"]},
+        "departments": {
+          "type": ["null", "array"],
+          "items": {
+              "type": ["null", "object"],
+              "properties": {
+                "id": {"type": ["null", "integer"]},
+                "name": {"type": ["null", "string"]},
+                "parent_id": {"type": ["null", "integer"]},
+                "child_ids": {},
+                "external_id": {"type": ["null", "string"]}
+              }
+          }
+        },
+        "offices": {
+          "type": ["null", "array"],
+          "items": {
+              "type": ["null", "object"],
+              "properties": {
+                "id": {"type": ["null", "integer"]},
+                "name": {"type": ["null", "string"]},
+                "location": {},
+                "primary_contact_user_id": {"type": ["null", "integer"]},
+                "parent_id": {"type": ["null", "integer"]},
+                "child_ids": {},
+                "external_id": {"type": ["null", "string"]}
+              }
+          }
+        },
+        "custom_fields": {},
+        "keyed_custom_fields": {},
+        "hiring_team": {
+          "type": ["null", "object"],
+          "properties": {
+            "hiring_managers": {
+              "type": ["null", "array"],
+              "items": {
+                  "type": ["null", "object"],
+                  "properties": {
+                    "id": {"type": ["null", "integer"]},
+                    "first_name": {"type": ["null", "string"]},
+                    "last_name": {"type": ["null", "string"]},
+                    "name": {"type": ["null", "string"]},
+                    "employee_id": {"type": ["null", "string"]}
+                  }
+              }
+            },
+            "recruiters": {
+              "type": ["null", "array"],
+              "items": {
+                  "type": ["null", "object"],
+                  "properties": {
+                    "id": {"type": ["null", "integer"]},
+                    "first_name": {"type": ["null", "string"]},
+                    "last_name": {"type": ["null", "string"]},
+                    "name": {"type": ["null", "string"]},
+                    "employee_id": {"type": ["null", "string"]},
+                    "responsible": {"type": ["null", "boolean"]}
+                  }
+              }
+            },
+            "coordinators": {
+              "type": ["null", "array"],
+              "items": {
+                  "type": ["null", "object"],
+                  "properties": {
+                    "id": {"type": ["null", "integer"]},
+                    "first_name": {"type": ["null", "string"]},
+                    "last_name": {"type": ["null", "string"]},
+                    "name": {"type": ["null", "string"]},
+                    "employee_id": {"type": ["null", "string"]},
+                    "responsible": {"type": ["null", "boolean"]}
+                  }
+              }
+            },
+            "sourcers": {
+              "type": ["null", "array"],
+              "items": {
+                  "type": ["null", "object"],
+                  "properties": {
+                    "id": {"type": ["null", "integer"]},
+                    "first_name": {"type": ["null", "string"]},
+                    "last_name": {"type": ["null", "string"]},
+                    "name": {"type": ["null", "string"]},
+                    "employee_id": {"type": ["null", "string"]}
+                  }
+              }
+            }
+          }
+        },
+        "openings": {
+          "type": ["null", "array"],
+          "items": {
+              "type": ["null", "object"],
+              "properties": {
+                "id": {"type": ["null", "integer"]},
+                "opening_id": {"type": ["null", "string"]},
+                "status": {"type": ["null", "string"]},
+                "opened_at": {
+                  "type": [
+                      "null",
+                      "string"
+                    ],
+                    "format": "date-time"  
+                },
+                "closed_at": {
+                  "type": [
+                      "null",
+                      "string"
+                    ],
+                    "format": "date-time"  
+                },
+                "application_id": {"type": ["null", "integer"]},
+                "close_reason": {
+                  "type": ["null", "object"],
+                  "properties": {
+                    "id": {"type": ["null", "integer"]},
+                    "name": {"type": ["null", "string"]}
+                  }
+                }
+              }
+          }
+      }
+    }
+}
