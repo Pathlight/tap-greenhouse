@@ -1,0 +1,71 @@
+{
+    "type": [
+        "null",
+        "object"
+    ],
+    "properties": {
+        "id": {"type": ["null", "integer"]},
+        "updated_at": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "created_at": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "interview": {"type": ["null", "string"]},
+        "interview_step": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {"type": ["null", "integer"]},
+                "name": {"type": ["null", "string"]}
+            }
+        },
+        "candidate_id": {"type": ["null", "integer"]},
+        "application_id": {"type": ["null", "integer"]},
+        "interviewed_at": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "submitted_by": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {"type": ["null", "integer"]},
+                "first_name": {"type": ["null", "string"]},
+                "last_name": {"type": ["null", "string"]},
+                "name": {"type": ["null", "string"]},
+                "employee_id": {"type": ["null", "string"]}
+            }
+        },
+        "interviewer": {
+            "type": ["null", "object"],
+            "properties": {
+                "id": {"type": ["null", "integer"]},
+                "first_name": {"type": ["null", "string"]},
+                "last_name": {"type": ["null", "string"]},
+                "name": {"type": ["null", "string"]},
+                "employee_id": {"type": ["null", "string"]}
+            }
+        },
+        "submitted_at": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "overall_recommendation": {"type": ["null", "string"]},
+        "attributes": {},
+        "ratings": {},
+        "questions": {}
+        }
+  }
