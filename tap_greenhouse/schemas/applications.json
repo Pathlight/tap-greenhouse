@@ -4,22 +4,37 @@
         "object"
     ],
     "properties": {
-        "id": {"type": ["null", "integer"]},
-        "candidate_id": {"type": ["null", "integer"]},
-        "prospect": {"type": ["null", "boolean"]},
+        "id": {
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
+        "candidate_id": {
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
+        "prospect": {
+            "type": [
+                "null",
+                "boolean"
+            ]
+        },
         "applied_at": {
             "type": [
                 "null",
                 "string"
-              ],
-              "format": "date-time"  
+            ],
+            "format": "date-time"
         },
         "rejected_at": {
             "type": [
                 "null",
                 "string"
-              ],
-              "format": "date-time" 
+            ],
+            "format": "date-time"
         },
         "last_activity_at": {
             "type": [
@@ -28,38 +43,153 @@
             ],
             "format": "date-time"
         },
-        "location": {},
+        "location": {
+            "type": [
+                "null",
+                "object"
+            ],
+            "properties": {
+                "address": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            }
+        },
         "source": {},
         "credited_to": {
-            "type": ["null", "object"],
+            "type": [
+                "null",
+                "object"
+            ],
             "properties": {
-                "id": {"type": ["null", "integer"]},
-                "first_name": {"type": ["null", "string"]},
-                "last_name": {"type": ["null", "string"]},
-                "name": {"type": ["null", "string"]},
-                "employee_id": {"type": ["null", "string"]}
+                "id": {
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "first_name": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "last_name": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "name": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "employee_id": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
             }
         },
         "rejection_reason": {},
         "rejection_details": {},
-        "jobs": {},
-        "job_post_id": {"type": ["null", "integer"]},
-        "status": {"type": ["null", "string"]},
-        "current_stage": {},
+        "jobs": {
+            "type": [
+                "null",
+                "object"
+            ],
+            "properties": {
+                "id": {
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "name": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            }
+        },
+        "job_post_id": {
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
+        "status": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "current_stage": {
+            "type": [
+                "null",
+                "object"
+            ],
+            "properties": {
+                "id": {
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "name": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            }
+        },
         "answers": {},
-        "prospective_office": {"type": ["null", "string"]},
+        "prospective_office": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
         "prospective_department": {},
         "prospect_detail": {},
         "custom_fields": {},
         "keyed_custom_fields": {},
         "attachments": {
-            "type": ["null", "array"],
+            "type": [
+                "null",
+                "array"
+            ],
             "items": {
-                "type": ["null", "object"],
+                "type": [
+                    "null",
+                    "object"
+                ],
                 "properties": {
-                    "filename": {"type": ["null", "string"]},
-                    "url": {"type": ["null", "string"]},
-                    "type": {"type": ["null", "string"]}
+                    "filename": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "url": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "type": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
                 }
             }
         }
