@@ -101,20 +101,26 @@
         "jobs": {
             "type": [
                 "null",
-                "object"
+                "array"
             ],
-            "properties": {
-                "id": {
-                    "type": [
-                        "null",
-                        "integer"
-                    ]
-                },
-                "name": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
+            "items": {
+                "type": [
+                    "null",
+                    "object"
+                ],
+                "properties": {
+                    "id": {
+                        "type": [
+                            "null",
+                            "integer"
+                        ]
+                    },
+                    "name": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
                 }
             }
         },
