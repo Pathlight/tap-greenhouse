@@ -172,6 +172,7 @@
                 {
                     "breadcrumb": [],
                     "metadata": {
+                        "selected": true,
                         "table-key-properties": [
                             "id"
                         ],
@@ -555,6 +556,7 @@
                 {
                     "breadcrumb": [],
                     "metadata": {
+                        "selected": true,
                         "table-key-properties": [
                             "id"
                         ],
@@ -693,7 +695,7 @@
         {
             "tap_stream_id": "eeoc",
             "key_properties": [
-                "id"
+                "application_id"
             ],
             "schema": {
                 "properties": {
@@ -806,6 +808,7 @@
                 {
                     "breadcrumb": [],
                     "metadata": {
+                        "selected": true,
                         "table-key-properties": [
                             "id"
                         ],
@@ -979,6 +982,7 @@
                 {
                     "breadcrumb": [],
                     "metadata": {
+                        "selected": true,
                         "table-key-properties": [
                             "id"
                         ],
@@ -1227,6 +1231,7 @@
                 {
                     "breadcrumb": [],
                     "metadata": {
+                        "selected": true,
                         "table-key-properties": [
                             "id"
                         ],
@@ -1550,6 +1555,7 @@
                 {
                     "breadcrumb": [],
                     "metadata": {
+                        "selected": true,
                         "table-key-properties": [
                             "id"
                         ],
@@ -1851,6 +1857,7 @@
                 {
                     "breadcrumb": [],
                     "metadata": {
+                        "selected": true,
                         "table-key-properties": [
                             "id"
                         ],
@@ -2202,6 +2209,7 @@
                 {
                     "breadcrumb": [],
                     "metadata": {
+                        "selected": true,
                         "table-key-properties": [
                             "id"
                         ],
@@ -2858,6 +2866,7 @@
                 {
                     "breadcrumb": [],
                     "metadata": {
+                        "selected": true,
                         "table-key-properties": [
                             "id"
                         ],
