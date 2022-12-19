@@ -1,5 +1,4 @@
 import datetime
-import pytz
 import singer
 
 from singer.utils import strptime_to_utc, strftime as singer_strftime
@@ -41,6 +40,35 @@ class Stream():
 
         return value
 
+    def paging_get(self, url):
+        per_page = 500
+        url = url+f'&per_page={per_page}'
+        
+        while True:
+            r = self.client.get(url)
+            data = r.json()
+            for record in data:  
+                yield record
+            if 'next' in r.links:
+                url = r.links['next']['url']
+            else:
+                break
+
+    def sync(self, state, config):
+        try:
+            sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
+        except TypeError:
+            sync_thru = self.start_date
+        
+        processed_url = self.url+f'?{self.incremental_search_key}={sync_thru}'
+        
+        for row in self.paging_get(processed_url):
+            values = {k: self.transform_value(k, v) for (k, v) in row.items()}
+            yield(self.stream, values)
+
+        self.update_bookmark(state, datetime.datetime.now().isoformat(timespec="seconds"))
+
+
 class EEOC(Stream):
     name = 'eeoc'
     replication_method = 'INCREMENTAL'
@@ -53,151 +81,50 @@ class EEOC(Stream):
     ])
     results_key = 'data'
 
-    def paging_get(self, url):
-        per_page = 500
-        url = url+f'&per_page={per_page}'
-        
-        while True:
-            r = self.client.get(url)
-            data = r.json()
-            for record in data:  
-                yield record
-            if 'next' in r.links:
-                url = r.links['next']['url']
-            else:
-                break
-
-    def sync(self, state, config):
-        try:
-            sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
-        except TypeError:
-            sync_thru = self.start_date
-        
-        processed_url = self.url+f'?{self.incremental_search_key}={sync_thru}'
-        
-        for row in self.paging_get(processed_url):
-            values = {k: self.transform_value(k, v) for (k, v) in row.items()}
-            yield(self.stream, values)
 
 class Applications(Stream):
     name = 'applications'
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
     replication_key = 'last_activity_at'
-    incremental_search_key='updated_after',
+    incremental_search_key='last_activity_after',
     url = '/v1/applications'
     datetime_fields = set([
         'updated_before', 'updated_after'
     ])
     results_key = 'data'
 
-    def paging_get(self, url):
-        per_page = 500
-        url = url+f'&per_page={per_page}'
-        
-        while True:
-            r = self.client.get(url)
-            data = r.json()
-            for record in data:  
-                yield record
-            if 'next' in r.links:
-                url = r.links['next']['url']
-            else:
-                break
-
-    def sync(self, state, config):
-        try:
-            sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
-        except TypeError:
-            sync_thru = self.start_date
-        
-        processed_url = self.url+f'?{self.incremental_search_key}={sync_thru}'
-        
-        for row in self.paging_get(processed_url):
-            values = {k: self.transform_value(k, v) for (k, v) in row.items()}
-            yield(self.stream, values)
-
 class Candidates(Stream):
     name = 'candidates'
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
-    replication_key = 'last_activity_at'
-    incremental_search_key='last_activity_after',
+    replication_key = 'last_activity'
+    incremental_search_key='updated_after',
     url = '/v1/candidates'
     datetime_fields = set([
         'submitted_before', 'submitted_after'
     ])
     results_key = 'data'
 
-    def paging_get(self, url):
-        per_page = 500
-        url = url+f'&per_page={per_page}'
-        
-        while True:
-            r = self.client.get(url)
-            data = r.json()
-            for record in data:  
-                yield record
-            if 'next' in r.links:
-                url = r.links['next']['url']
-            else:
-                break
-
-    def sync(self, state, config):
-        try:
-            sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
-        except TypeError:
-            sync_thru = self.start_date
-        
-        processed_url = self.url+f'?{self.incremental_search_key}={sync_thru}'
-        
-        for row in self.paging_get(processed_url):
-            values = {k: self.transform_value(k, v) for (k, v) in row.items()}
-            yield(self.stream, values)
 
 class Offers(Stream):
     name = 'offers'
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
-    replication_key = 'created_at'
-    incremental_search_key='created_after',
+    replication_key = 'updated_at'
+    incremental_search_key='updated_after',
     url = '/v1/offers'
     datetime_fields = set([
         'created_before', 'created_after'
     ])
     results_key = 'data'
 
-    def paging_get(self, url):
-        per_page = 500
-        url = url+f'&per_page={per_page}'
-        
-        while True:
-            r = self.client.get(url)
-            data = r.json()
-            for record in data:  
-                yield record
-            if 'next' in r.links:
-                url = r.links['next']['url']
-            else:
-                break
-
-    def sync(self, state, config):
-        try:
-            sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
-        except TypeError:
-            sync_thru = self.start_date
-        
-        processed_url = self.url+f'?{self.incremental_search_key}={sync_thru}'
-        
-        for row in self.paging_get(processed_url):
-            values = {k: self.transform_value(k, v) for (k, v) in row.items()}
-            yield(self.stream, values)
 
 class Scorecards(Stream):
     name = 'scorecards'
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
-    replication_key = 'submitted_by'
+    replication_key = 'updated_at'
     incremental_search_key='updated_after',
     url = '/v1/scorecards'
     datetime_fields = set([
@@ -205,37 +132,12 @@ class Scorecards(Stream):
     ])
     results_key = 'data'
 
-    def paging_get(self, url):
-        per_page = 500
-        url = url+f'&per_page={per_page}'
-        
-        while True:
-            r = self.client.get(url)
-            data = r.json()
-            for record in data:  
-                yield record
-            if 'next' in r.links:
-                url = r.links['next']['url']
-            else:
-                break
-
-    def sync(self, state, config):
-        try:
-            sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
-        except TypeError:
-            sync_thru = self.start_date
-        
-        processed_url = self.url+f'?{self.incremental_search_key}={sync_thru}'
-        
-        for row in self.paging_get(processed_url):
-            values = {k: self.transform_value(k, v) for (k, v) in row.items()}
-            yield(self.stream, values)
 
 class Interviews(Stream):
     name = 'interviews'
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
-    replication_key = 'submitted_by'
+    replication_key = 'updated_at'
     incremental_search_key='updated_after',
     url = '/v1/scheduled_interviews'
     datetime_fields = set([
@@ -243,31 +145,6 @@ class Interviews(Stream):
     ])
     results_key = 'data'
 
-    def paging_get(self, url):
-        per_page = 500
-        url = url+f'&per_page={per_page}'
-        
-        while True:
-            r = self.client.get(url)
-            data = r.json()
-            for record in data:  
-                yield record
-            if 'next' in r.links:
-                url = r.links['next']['url']
-            else:
-                break
-
-    def sync(self, state, config):
-        try:
-            sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
-        except TypeError:
-            sync_thru = self.start_date
-        
-        processed_url = self.url+f'?{self.incremental_search_key}={sync_thru}'
-        
-        for row in self.paging_get(processed_url):
-            values = {k: self.transform_value(k, v) for (k, v) in row.items()}
-            yield(self.stream, values)
 
 class Users(Stream):
     name = 'users'
@@ -281,37 +158,12 @@ class Users(Stream):
     ])
     results_key = 'data'
 
-    def paging_get(self, url):
-        per_page = 500
-        url = url+f'&per_page={per_page}'
-        
-        while True:
-            r = self.client.get(url)
-            data = r.json()
-            for record in data:  
-                yield record
-            if 'next' in r.links:
-                url = r.links['next']['url']
-            else:
-                break
-
-    def sync(self, state, config):
-        try:
-            sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
-        except TypeError:
-            sync_thru = self.start_date
-        
-        processed_url = self.url+f'?{self.incremental_search_key}={sync_thru}'
-        
-        for row in self.paging_get(processed_url):
-            values = {k: self.transform_value(k, v) for (k, v) in row.items()}
-            yield(self.stream, values)
 
 class Jobs(Stream):
     name = 'jobs'
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
-    replication_key = 'updated_after'
+    replication_key = 'updated_at'
     incremental_search_key='updated_after',
     url = '/v1/jobs'
     datetime_fields = set([
@@ -319,70 +171,18 @@ class Jobs(Stream):
     ])
     results_key = 'data'
 
-    def paging_get(self, url):
-        per_page = 500
-        url = url+f'&per_page={per_page}'
-        
-        while True:
-            r = self.client.get(url)
-            data = r.json()
-            for record in data:  
-                yield record
-            if 'next' in r.links:
-                url = r.links['next']['url']
-            else:
-                break
-
-    def sync(self, state, config):
-        try:
-            sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
-        except TypeError:
-            sync_thru = self.start_date
-        
-        processed_url = self.url+f'?{self.incremental_search_key}={sync_thru}'
-        
-        for row in self.paging_get(processed_url):
-            values = {k: self.transform_value(k, v) for (k, v) in row.items()}
-            yield(self.stream, values)
 
 class JobPosts(Stream):
     name = 'job_posts'
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
-    replication_key = 'first_published_at'
+    replication_key = 'updated_at'
     incremental_search_key='updated_after',
     url = '/v1/job_posts'
     datetime_fields = set([
         'created_before', 'created_after'
     ])
     results_key = 'data'
-
-    def paging_get(self, url):
-        per_page = 500
-        url = url+f'&per_page={per_page}'
-        
-        while True:
-            r = self.client.get(url)
-            data = r.json()
-            for record in data:  
-                yield record
-            if 'next' in r.links:
-                url = r.links['next']['url']
-            else:
-                break
-
-    def sync(self, state, config):
-        try:
-            sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
-        except TypeError:
-            sync_thru = self.start_date
-        
-        processed_url = self.url+f'?{self.incremental_search_key}={sync_thru}'
-        
-        for row in self.paging_get(processed_url):
-            values = {k: self.transform_value(k, v) for (k, v) in row.items()}
-            yield(self.stream, values)
-
 
 
 STREAMS = {
