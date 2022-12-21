@@ -4,9 +4,6 @@ import singer
 from singer.utils import strptime_to_utc, strftime as singer_strftime
 
 
-LOGGER = singer.get_logger()
-
-
 class Stream():
     name = None
     replication_method = None
@@ -16,6 +13,7 @@ class Stream():
     datetime_fields = None
     url = None
     results_key = None
+    incremental_search_key = None
 
     def __init__(self, client=None, start_date=None):
         self.client = client
@@ -59,7 +57,7 @@ class Stream():
             sync_thru = singer.get_bookmark(state, self.name, self.replication_key)
         except TypeError:
             sync_thru = self.start_date
-        
+
         processed_url = self.url+f'?{self.incremental_search_key}={sync_thru}'
         
         for row in self.paging_get(processed_url):
@@ -87,7 +85,7 @@ class Applications(Stream):
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
     replication_key = 'last_activity_at'
-    incremental_search_key='last_activity_after',
+    incremental_search_key='last_activity_after'
     url = '/v1/applications'
     datetime_fields = set([
         'updated_before', 'updated_after'
@@ -99,7 +97,7 @@ class Candidates(Stream):
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
     replication_key = 'last_activity'
-    incremental_search_key='updated_after',
+    incremental_search_key='updated_after'
     url = '/v1/candidates'
     datetime_fields = set([
         'submitted_before', 'submitted_after'
@@ -112,7 +110,7 @@ class Offers(Stream):
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
     replication_key = 'updated_at'
-    incremental_search_key='updated_after',
+    incremental_search_key='updated_after'
     url = '/v1/offers'
     datetime_fields = set([
         'created_before', 'created_after'
@@ -125,7 +123,7 @@ class Scorecards(Stream):
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
     replication_key = 'updated_at'
-    incremental_search_key='updated_after',
+    incremental_search_key='updated_after'
     url = '/v1/scorecards'
     datetime_fields = set([
         'created_before', 'created_after'
@@ -138,7 +136,7 @@ class Interviews(Stream):
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
     replication_key = 'updated_at'
-    incremental_search_key='updated_after',
+    incremental_search_key='updated_after'
     url = '/v1/scheduled_interviews'
     datetime_fields = set([
         'created_before', 'created_after'
@@ -151,7 +149,7 @@ class Users(Stream):
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
     replication_key = 'updated_at'
-    incremental_search_key='updated_after',
+    incremental_search_key='updated_after'
     url = '/v1/users'
     datetime_fields = set([
         'created_before', 'created_after'
@@ -164,7 +162,7 @@ class Jobs(Stream):
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
     replication_key = 'updated_at'
-    incremental_search_key='updated_after',
+    incremental_search_key='updated_after'
     url = '/v1/jobs'
     datetime_fields = set([
         'created_before', 'created_after'
@@ -177,7 +175,7 @@ class JobPosts(Stream):
     replication_method = 'INCREMENTAL'
     key_properties = ['id']
     replication_key = 'updated_at'
-    incremental_search_key='updated_after',
+    incremental_search_key='updated_after'
     url = '/v1/job_posts'
     datetime_fields = set([
         'created_before', 'created_after'
